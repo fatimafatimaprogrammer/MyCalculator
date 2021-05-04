@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My javascript Calculator for lab 6 </title>
+
+<style type="text/css">
+	body {
+  background-color: #391427 ;
+}
+h2 {
+		color: white;
+  background-color: #391427 ;
+}
+
+table {
+  margin: auto;
+  background-color: #df9f9f;
+  width: 295px;
+  max-width: 295px;
+  height: 325px;
+  text-align: center;
+  border-radius: 4px;
+  padding-right: 10px;
+}
+
+input {
+  outline: 0;
+  position: relative;
+  left: 5px;
+  top: 5px;
+  color: white ;
+  background-color: black;
+  border-radius: 4px;
+  width: 60px;
+  height: 50px;
+  margin: 5px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+input:hover {
+  border: 0 solid #000;
+  color: #993333;
+  background-color: #fff;
+  border-radius: 4px;
+  width: 60px;
+  height: 50px;
+  margin: 5px;
+  font-size: 30px;
+  box-shadow: 0 4px #993333;
+}
+
+input:active {
+  top: 4px;
+  border: 0 solid #000;
+  color: #993333;
+  background-color: #fff;
+  border-radius: 4px;
+  width: 60px;
+  height: 50px;
+  margin: 5px;
+  font-size: 30px;
+}
+
+#display {
+  width: 265px;
+  max-width: 270px;
+  font-size: 26px;
+  text-align: right;
+  background-color: #800040;
+  float: center;
+}
+
+</style>
+
+</head>
+
+<script type="text/javascript">
+
+var m;
+
+/*function for MC memory clear*/
+function Mclear(){
+	m = null;
+}
+/*function for MS storing the input*/
+function store(){
+    m=Calculator.display.value;
+}	
+/*function for MR restoring the input*/
+function restore(){
+	Calculator.display.value=m;
+}
+/*function for M+*/
+function Mplus(){
+	var a=Calculator.display.value;
+	var b=m;
+	var c=eval(+a + +b)
+	Calculator.display.value=c;
+}
+</script>
+
+<body>
+
+<h2>MY CALCULATOR :)) </h2>
+
+<form name="Calculator">
+	
+	<table>
+
+		<tr>
+			<td colspan="6">
+				<input type="text" name="display" id="display" disabled>	
+			</td>	
+		</tr>
+
+		<tr>
+			<td>
+				<input type="button" name="MC" value="MC" onclick="Mclear()" >
+			</td>
+
+			<td>
+				<input type="button" name="one" value="1" onclick="Calculator.display.value += '1' ">
+			</td>
+
+			<td>
+				<input type="button" name="two" value="2" onclick="Calculator.display.value += '2' ">
+			</td>
+
+			<td>
+				<input type="button" name="three" value="3" onclick="Calculator.display.value += '3' ">
+			</td>
+
+			<td>
+				<input type="button" class="operators" name="plus" value="+" onclick="Calculator.display.value += '+'">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<input type="button" name="MS" value="MS" onclick="store()" >
+			</td>
+
+			<td>
+				<input type="button" name="four" value="4" onclick="Calculator.display.value += '4' ">
+			</td>
+
+			<td>
+				<input type="button" name="five" value="5" onclick="Calculator.display.value += '5' ">
+			</td>
+
+			<td>
+				<input type="button" name="six" value="6" onclick="Calculator.display.value += '6' ">
+			</td>
+
+			<td>
+				<input type="button" class="operators" name="minus" value="-" onclick="Calculator.display.value += '-'">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<input type="button" name="MR" value="MR" onclick="restore()" >
+			</td>
+
+			<td>
+				<input type="button" name="seven" value="7" onclick="Calculator.display.value += '7' ">
+			</td>
+
+			<td>
+				<input type="button" name="eight" value="8" onclick="Calculator.display.value += '8' ">
+			</td>
+
+			<td>
+				<input type="button" name="nine" value="9" onclick="Calculator.display.value += '9' ">
+			</td>
+
+			<td>
+				<input type="button" class="operators" name="multiply" value="*" onclick="Calculator.display.value += '*'">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<input type="button" name="M+" value="M+" onclick="Mplus()" >
+			</td>
+
+			<td>
+				<input type="button" name="zero" value="0" onclick="Calculator.display.value += '0' ">
+			</td>
+
+			<td>
+				 <input type="button" name="plusminus" value="±" onclick="Calculator.display.value = Calculator.display.value * -1 "> 
+			</td>
+
+			<td>
+				<input type="button" name="point" value="." onclick="Calculator.display.value += '.0' ">
+			</td>
+
+			<td>
+				<input type="button" class="operators" name="divide" value="/" onclick="Calculator.display.value += '/'">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<input type="button" name="clear" value="C" onclick="Calculator.display.value = '' ">
+			</td>
+
+			<td>
+				<input type="button" name="1/x" value="1/x" onclick="Calculator.display.value = 1/Calculator.display.value" >
+			</td>
+
+			<td>
+				<input type="button" name="squareroot" value="√x" onclick="Calculator.display.value = Math.sqrt(Calculator.display.value)">
+			</td>
+
+			<td>
+				<input type="button" name="square" value="x2" onclick="Calculator.display.value = Calculator.display.value*Calculator.display.value ">
+			</td>
+
+			<td>
+				<input type="button"  name="equal" value="=" onclick="Calculator.display.value = eval(Calculator.display.value)"> 
+			</td>
+		</tr>
+
+
+	</table>
+</form>
+
+</body>
+</html>
